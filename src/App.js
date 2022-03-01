@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ToDoItem from './components/ToDoItem';
+import toDoContext from './contexts/toDoContext';
+import './toDo.css'
+
 
 function App() {
+  const [toDo, setToDo] = useState([])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <toDoContext.Provider value={toDo, setToDo}>
+      <div className='container'>
+      <div className='toDo'>
+        <form action="post" className='form'>
+          <input type="text" className='title'/>
+          <input type="text" className='discription'/>
+        </form>
+
+        <ToDoItem/>
+        <ToDoItem/>
+        <ToDoItem/>
+        <ToDoItem/>
+        <ToDoItem/>
+        <ToDoItem/>
+      </div>
+      </div>
+    </toDoContext.Provider>
   );
 }
 
