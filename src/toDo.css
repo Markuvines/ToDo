@@ -4,8 +4,24 @@
   box-sizing: border-box;
 }
 .container {
+  padding: 20px 0;
   max-width: 50%;
   margin: 0 auto;
+}
+
+.toDoItem {
+  min-height: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discription {
+  margin: 0 0 20px 0;
+}
+
+.form {
+  margin: 0 0 20px 0;
 }
 
 .form input {
@@ -15,7 +31,14 @@
 .toDoItem:not(:last-child) {
   margin: 0 0 10px 0;
 }
+.postButton {
+  display: block;
+  margin:  0 auto;
+}
 .check {
+  margin: 0 auto 0 0;
+  position: relative;
+  /* max-height: 25px; */
   display: block;
   padding: 0 0 0 25px;
   
@@ -27,6 +50,7 @@
 }
 
 .check__box {
+  top:calc(50% - 10px) ;
   margin: 0 0 0 -25px;
   position: absolute;
   width: 20px;
@@ -39,6 +63,18 @@
   background-color: white;
 }
 .checkbox:focus:checked + .check__box {
+  border: 2px solid #FF4545;
+  background: url(./image/check.svg) no-repeat center;
+  background-color: #B5B5BA;
+}
+
+
+/* MouseOver */
+.checkbox:hover + .check__box {
+  border: 2px solid #FF4545;
+  background-color: white;
+}
+.checkbox:hover:checked + .check__box {
   border: 2px solid #FF4545;
   background: url(./image/check.svg) no-repeat center;
   background-color: #B5B5BA;
@@ -59,4 +95,8 @@
 .checkbox:checked ~ .checkboxDisc {
   text-decoration: line-through;
   color: #B5B5BA;
+}
+.checkDel {
+  width: 25px;
+  cursor: pointer;
 }
